@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { defineBddConfig, cucumberReporter } from 'playwright-bdd';
 
 /**
  * Read environment variables from file.
@@ -11,8 +12,15 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
+const testDir = defineBddConfig({
+    // tags: 'features',
+    features: './src/tests/features',
+    steps: './src/tests/steps'
+});
+
 export default defineConfig({
-    testDir: './src',
+    testDir: testDir,
     /* Run tests in files in parallel */
     fullyParallel: true,
     /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -20,9 +28,14 @@ export default defineConfig({
     /* Retry on CI only */
     retries: 5,
     /* Opt out of parallel tests on CI. */
-    workers:  1,
+    workers: 1,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-    reporter: 'html',
+    reporter: [
+        ['html',],
+        ['list'],
+        cucumberReporter('json', { outputFile: 'cucumber-report/cucumber.json' }),
+        ["allure-playwright", { outputFolder: 'allure-report', detail: false, suiteTitle: false }]
+    ],
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
         /* Base URL to use in actions like `await page.goto('')`. */
