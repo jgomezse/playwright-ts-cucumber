@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "setup": "pnpm install && pnpm exec playwright install --with-deps --quiet",
+        "setup": "pnpm install && pnpm exec playwright install --with-deps --no-progress",
         "test": "pnpm exec bddgen && pnpm exec playwright test",
         "setup:test": "pnpm run setup && pnpm run test",
         "show-html": "pnpm exec playwright show-report",
