@@ -1,6 +1,6 @@
 # Playwright + TypeScript + Cucumber (BDD)
 
-Proyecto de portafolio de automatización QA con **Playwright**, **TypeScript** y **Cucumber (BDD)**, reportes HTML, Allure y Cucumber, y CI con GitHub Actions.
+Proyecto de testing automatizado con **Playwright**, **TypeScript** y **Cucumber (BDD)**, con reportes HTML, Allure y Cucumber, y CI integrado via GitHub Actions.
 
 ## Stack
 
@@ -21,16 +21,17 @@ Proyecto de portafolio de automatización QA con **Playwright**, **TypeScript** 
 
 ```
 ├── .github/workflows/playwright.yml   # CI pipeline
-├── Dockerfile                          # Imagen Docker
+├── Dockerfile                          # Imagen Docker para ejecutar tests
 ├── docker-compose.yml                  # Orquestación del contenedor
+├── .dockerignore
 ├── src/
 │   └── tests/
-│       ├── features/                   # Archivos .feature
+│       ├── features/                   # Archivos .feature (Gherkin)
 │       ├── steps/                      # Step definitions
 │       │   └── the-internet/
-│       └── pages/                      # Page Objects
+│       └── pages/                      # Page Object Models
 │           └── the-internet/
-├── playwright.config.ts
+├── playwright.config.ts                # Configuración de Playwright
 ├── package.json
 └── pnpm-lock.yaml
 ```
@@ -39,26 +40,27 @@ Proyecto de portafolio de automatización QA con **Playwright**, **TypeScript** 
 
 - Node.js LTS
 - pnpm `^11.7.0`
-- Docker (opcional)
+- Docker (opcional, solo para ejecución en contenedor)
 
 ## Ejecución
 
-### Local
+### Con pnpm
 
 ```bash
-pnpm run test
+pnpm run setup:test
 ```
 
-Ejecutar un escenario específico:
+O en Docker (sin instalar dependencias localmente):
 
 ```bash
-pnpm exec bddgen && pnpm exec playwright test --grep "Checkboxes"
+pnpm run docker
 ```
 
 ### Con Docker
 
 ```bash
-pnpm run docker
+docker compose up --build
+docker compose down --rmi all
 ```
 
 ## Reportes
@@ -71,4 +73,8 @@ pnpm run docker
 
 ## CI
 
-El workflow se ejecuta en push a `main` o manualmente (`workflow_dispatch`). Sube 3 artefactos: Playwright HTML, Allure y Cucumber JSON.
+El workflow se ejecuta en:
+- Push a `main`
+- Manual (`workflow_dispatch`)
+
+Genera y sube como artefactos: Playwright HTML, Allure y Cucumber JSON.
