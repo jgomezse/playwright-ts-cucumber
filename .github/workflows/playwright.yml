@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  playwright-ts-cucumber:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     container:
