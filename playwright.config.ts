@@ -14,6 +14,7 @@ import { defineBddConfig, cucumberReporter } from 'playwright-bdd';
  */
 
 const testDir = defineBddConfig({
+    matchKeywords: true,
     // tags: 'features',
     features: './src/tests/features',
     steps: './src/tests/steps'
@@ -34,7 +35,7 @@ export default defineConfig({
         ['html',],
         ['list'],
         cucumberReporter('json', { outputFile: 'cucumber-report/cucumber.json' }),
-        ["allure-playwright", { outputFolder: 'allure-report', detail: false, suiteTitle: false }]
+        ["allure-playwright", { detail: false, suiteTitle: false }]
     ],
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
@@ -48,10 +49,15 @@ export default defineConfig({
 
     /* Configure projects for major browsers */
     projects: [
+
         {
-            name: 'chromium',
-            use: { ...devices['Desktop Chrome'] },
-        },
+            name: 'The Internet',
+        }
+
+        // {
+        //     name: 'chromium',
+        //     use: { ...devices['Desktop Chrome'] },
+        // },
 
         // {
         //     name: 'firefox',
