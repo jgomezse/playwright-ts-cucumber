@@ -7,6 +7,7 @@
         "setup": "pnpm install && pnpm exec playwright install --with-deps",
         "test": "pnpm exec bddgen && pnpm exec playwright test",
         "setup:test": "pnpm run setup && pnpm run test",
+        "docker": "docker compose up --build -d && docker compose wait && docker compose down --rmi all",
         "show-html": "pnpm exec playwright show-report",
         "clean-reports": "rm -rf allure-results && rm -rf cucumber-report && rm -rf playwright-report && rm -rf test-results",
         "clean-environment": "pnpm run clean-reports && rm -rf node_modules && rm -rf .features-gen"
