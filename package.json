@@ -1,0 +1,31 @@
+{
+    "name": "playwright-ts-cucumber",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "setup": "pnpm install && pnpm exec playwright install --with-deps",
+        "test": "pnpm exec bddgen && pnpm exec playwright test",
+        "setup:test": "pnpm run setup && pnpm run test",
+        "show-html": "pnpm exec playwright show-report",
+        "clean-reports": "rm -rf allure-results && rm -rf cucumber-report && rm -rf playwright-report && rm -rf test-results",
+        "clean-environment": "pnpm run clean-reports && rm -rf node_modules && rm -rf .features-gen"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devEngines": {
+        "packageManager": {
+            "name": "pnpm",
+            "version": "^11.7.0",
+            "onFail": "download"
+        }
+    },
+    "type": "module",
+    "devDependencies": {
+        "@playwright/test": "^1.61.0",
+        "@types/node": "^25.9.3",
+        "allure-playwright": "^3.10.0",
+        "playwright-bdd": "^9.1.0"
+    }
+}
