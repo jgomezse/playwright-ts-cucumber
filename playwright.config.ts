@@ -46,7 +46,7 @@ export default defineConfig({
         trace: 'on-first-retry',
         screenshot: 'on',
         // launchOptions: {
-        //     slowMo: 500, // 500 ms entre acciones
+        //     slowMo: 1000, // 1000 ms entre acciones
         // },
     },
 

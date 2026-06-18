@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { createBdd } from 'playwright-bdd';
-import { HomePage } from '../../pages/the-internet/home.page';
+import { HomePage } from '../../pages/the-internet/Home.page';
 import { AddRemoveElementsPage } from '../../pages/the-internet/AddRemoveElements.page';
 
 const { Given, When, Then } = createBdd();
