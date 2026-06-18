@@ -1,6 +1,6 @@
 # Playwright + TypeScript + Cucumber (BDD)
 
-Proyecto de testing automatizado con **Playwright**, **TypeScript** y **Cucumber (BDD)**, con reportes HTML, Allure y Cucumber, y CI integrado via GitHub Actions.
+Proyecto de portafolio de automatización QA con **Playwright**, **TypeScript** y **Cucumber (BDD)**, reportes HTML, Allure y Cucumber, y CI con GitHub Actions.
 
 ## Stack
 
@@ -13,19 +13,24 @@ Proyecto de testing automatizado con **Playwright**, **TypeScript** y **Cucumber
 - **Docker** — Ejecución containerizada de tests
 - **GitHub Actions** — CI/CD
 
+## Páginas bajo prueba
+
+- [the-internet.herokuapp.com](https://the-internet.herokuapp.com/)
+
 ## Estructura del proyecto
 
 ```
 ├── .github/workflows/playwright.yml   # CI pipeline
-├── Dockerfile                          # Imagen Docker para ejecutar tests
+├── Dockerfile                          # Imagen Docker
 ├── docker-compose.yml                  # Orquestación del contenedor
-├── .dockerignore
 ├── src/
-│   ├── tests/
-│   │   ├── features/                   # Archivos .feature (Gherkin)
-│   │   ├── steps/                      # Step definitions
-│   │   └── pages/                      # Page Object Models
-├── playwright.config.ts                # Configuración de Playwright
+│   └── tests/
+│       ├── features/                   # Archivos .feature
+│       ├── steps/                      # Step definitions
+│       │   └── the-internet/
+│       └── pages/                      # Page Objects
+│           └── the-internet/
+├── playwright.config.ts
 ├── package.json
 └── pnpm-lock.yaml
 ```
@@ -34,27 +39,26 @@ Proyecto de testing automatizado con **Playwright**, **TypeScript** y **Cucumber
 
 - Node.js LTS
 - pnpm `^11.7.0`
-- Docker (opcional, solo para ejecución en contenedor)
+- Docker (opcional)
 
 ## Ejecución
 
-### Con pnpm
+### Local
 
 ```bash
-pnpm run setup:test
+pnpm run test
 ```
 
-O en Docker (sin instalar dependencias localmente):
+Ejecutar un escenario específico:
 
 ```bash
-pnpm run docker
+pnpm exec bddgen && pnpm exec playwright test --grep "Checkboxes"
 ```
 
 ### Con Docker
 
 ```bash
-docker compose up --build
-docker compose down --rmi all
+pnpm run docker
 ```
 
 ## Reportes
@@ -67,8 +71,4 @@ docker compose down --rmi all
 
 ## CI
 
-El workflow se ejecuta en:
-- Push a `main`
-- Manual (`workflow_dispatch`)
-
-Genera y sube como artefactos: Playwright HTML, Allure y Cucumber JSON.
+El workflow se ejecuta en push a `main` o manualmente (`workflow_dispatch`). Sube 3 artefactos: Playwright HTML, Allure y Cucumber JSON.
