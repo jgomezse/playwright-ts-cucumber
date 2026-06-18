@@ -155,3 +155,6 @@ cucumber-report/
 
 #VS Code Settings
 .vscode/
+
+# Instrucciones para asistentes
+AGENTS.md

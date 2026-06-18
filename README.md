@@ -13,6 +13,10 @@ Proyecto de testing automatizado con **Playwright**, **TypeScript** y **Cucumber
 - **Docker** — Ejecución containerizada de tests
 - **GitHub Actions** — CI/CD
 
+## Páginas bajo prueba
+
+- [the-internet.herokuapp.com](https://the-internet.herokuapp.com/)
+
 ## Estructura del proyecto
 
 ```
@@ -21,10 +25,12 @@ Proyecto de testing automatizado con **Playwright**, **TypeScript** y **Cucumber
 ├── docker-compose.yml                  # Orquestación del contenedor
 ├── .dockerignore
 ├── src/
-│   ├── tests/
-│   │   ├── features/                   # Archivos .feature (Gherkin)
-│   │   ├── steps/                      # Step definitions
-│   │   └── pages/                      # Page Object Models
+│   └── tests/
+│       ├── features/                   # Archivos .feature (Gherkin)
+│       ├── steps/                      # Step definitions
+│       │   └── the-internet/
+│       └── pages/                      # Page Object Models
+│           └── the-internet/
 ├── playwright.config.ts                # Configuración de Playwright
 ├── package.json
 └── pnpm-lock.yaml
