@@ -55,8 +55,7 @@ pnpm run setup:test
 ## CI
 
 El workflow se ejecuta en:
-- Push a `main`, `master`, `dev`
-- Pull request a `main`, `master`
+- Push a `main`
 - Manual (`workflow_dispatch`)
 
 Genera y sube como artefactos: Playwright HTML, Allure y Cucumber JSON.
