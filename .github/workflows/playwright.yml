@@ -19,8 +19,11 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Run Playwright tests
-        run: pnpm run setup:test
+      - name: Install dependencies and Playwright browsers
+        run: pnpm run setup
+
+      - name: Generate BDD files and execute tests
+        run: pnpm run test
 
       - name: Generate Allure report
         if: ${{ !cancelled() }}
