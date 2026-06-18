@@ -1,0 +1,8 @@
+node_modules
+playwright-report
+allure-results
+allure-report
+cucumber-report
+test-results
+.features-gen
+.git

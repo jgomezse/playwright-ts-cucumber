@@ -1,0 +1,10 @@
+services:
+  playwright-ts-cucumber:
+    build: .
+    image: playwright-ts-cucumber
+    container_name: playwright-ts-cucumber
+    volumes:
+      - ./playwright-report:/app/playwright-report
+      - ./allure-results:/app/allure-results
+      - ./cucumber-report:/app/cucumber-report
+      - ./test-results:/app/test-results
