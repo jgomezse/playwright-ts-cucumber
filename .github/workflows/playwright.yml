@@ -8,6 +8,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.61.0-noble
     steps:
       - uses: actions/checkout@v6.0.3
       - uses: actions/setup-node@v6.4.0
@@ -17,8 +19,8 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Install dependencies and Playwright browsers
-        run: pnpm run setup
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Generate BDD files and execute tests
         run: pnpm run test
