@@ -29,7 +29,7 @@ export default defineConfig({
     /* Retry on CI only */
     retries: 5,
     /* Opt out of parallel tests on CI. */
-    workers: 1,
+    workers: 4,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
     reporter: [
         ['html',],
@@ -45,6 +45,9 @@ export default defineConfig({
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         trace: 'on-first-retry',
         screenshot: 'on',
+        // launchOptions: {
+        //     slowMo: 500, // 500 ms entre acciones
+        // },
     },
 
     /* Configure projects for major browsers */
