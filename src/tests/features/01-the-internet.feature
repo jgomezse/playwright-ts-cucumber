@@ -57,3 +57,72 @@ Feature: Pruebas sobre el sitio The Internet
         Then se visualiza la página de Context Menu
         When se hace clic derecho en el cuadro
         Then se visualiza el mensaje del menú contextual
+
+    @smoke
+    Scenario: Ejemplo Digest Authentication
+        When se hace clic en Digest Authentication
+        Then se visualiza el mensaje de autenticación digest exitosa
+
+    @smoke
+    Scenario: Ejemplo Disappearing Elements
+        When se hace clic en Disappearing Elements
+        Then se visualiza la página de Disappearing Elements
+
+    @smoke
+    Scenario: Ejemplo Drag and Drop
+        When se hace clic en Drag and Drop
+        Then se visualiza la página de Drag and Drop
+        When se arrastra la columna A sobre la columna B
+        Then la columna A está a la derecha de la columna B
+
+    @smoke
+    Scenario: Ejemplo Dropdown
+        When se hace clic en Dropdown
+        Then se visualiza la página de Dropdown
+        When se selecciona Option 1 en el dropdown
+        Then Option 1 está seleccionado en el dropdown
+
+    @smoke
+    Scenario: Ejemplo Dynamic Content
+        When se hace clic en Dynamic Content
+        Then se visualiza la página de Dynamic Content
+        And se visualizan 3 filas de contenido
+
+    @smoke
+    Scenario: Ejemplo Dynamic Controls
+        When se hace clic en Dynamic Controls
+        Then se visualiza la página de Dynamic Controls
+        When se hace clic en Remove
+        Then el checkbox desaparece
+        When se hace clic en Add
+        Then el checkbox aparece
+        When se hace clic en Enable
+        Then el input está habilitado
+
+    @smoke
+    Scenario: Ejemplo Dynamic Loading
+        When se hace clic en Dynamic Loading
+        Then se visualiza la página de Dynamic Loading
+        When se hace clic en Example 1
+        When se hace clic en Start
+        Then se visualiza el elemento Hello World
+
+    @smoke
+    Scenario: Ejemplo Entry Ad
+        When se hace clic en Entry Ad
+        Then se visualiza el modal de Entry Ad
+        When se cierra el modal
+        Then el modal no está visible
+
+    @smoke
+    Scenario: Ejemplo Exit Intent
+        When se hace clic en Exit Intent
+        Then se visualiza la página de Exit Intent
+        When se mueve el mouse fuera del viewport
+        Then se visualiza el modal de Exit Intent
+
+    @smoke
+    Scenario: Ejemplo File Download
+        When se hace clic en File Download
+        Then se visualiza la página de File Download
+        When se descarga el archivo "some-file.txt"
