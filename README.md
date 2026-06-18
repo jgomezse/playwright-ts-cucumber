@@ -10,12 +10,16 @@ Proyecto de testing automatizado con **Playwright**, **TypeScript** y **Cucumber
 - **Page Object Model** — Patrón de diseño para mantenibilidad
 - **Allure** — Reportes visuales de resultados
 - **pnpm** — Gestor de paquetes
+- **Docker** — Ejecución containerizada de tests
 - **GitHub Actions** — CI/CD
 
 ## Estructura del proyecto
 
 ```
 ├── .github/workflows/playwright.yml   # CI pipeline
+├── Dockerfile                          # Imagen Docker para ejecutar tests
+├── docker-compose.yml                  # Orquestación del contenedor
+├── .dockerignore
 ├── src/
 │   ├── tests/
 │   │   ├── features/                   # Archivos .feature (Gherkin)
@@ -30,18 +34,27 @@ Proyecto de testing automatizado con **Playwright**, **TypeScript** y **Cucumber
 
 - Node.js LTS
 - pnpm `^11.7.0`
+- Docker (opcional, solo para ejecución en contenedor)
 
-## Instalación y ejecución
+## Ejecución
+
+### Con pnpm
 
 ```bash
-# Instalar dependencias y navegadores
-pnpm run setup
-
-# Ejecutar tests
-pnpm run test
-
-# Todo en uno
 pnpm run setup:test
+```
+
+O en Docker (sin instalar dependencias localmente):
+
+```bash
+pnpm run docker
+```
+
+### Con Docker
+
+```bash
+docker compose up --build
+docker compose down --rmi all
 ```
 
 ## Reportes
