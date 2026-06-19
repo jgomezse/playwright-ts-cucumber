@@ -147,6 +147,7 @@ Feature: Pruebas sobre el sitio The Internet
         Then se visualiza la página de Forgot Password
         When se ingresa el correo "test@example.com"
         When se envía el formulario de recuperación
+        Then se realizó la solicitud de recuperación de contraseña
 
     @smoke
     Scenario: Ejemplo Form Authentication
