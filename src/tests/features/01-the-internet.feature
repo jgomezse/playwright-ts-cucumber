@@ -126,3 +126,42 @@ Feature: Pruebas sobre el sitio The Internet
         When se hace clic en File Download
         Then se visualiza la página de File Download
         When se descarga el archivo "some-file.txt"
+
+    @smoke
+    Scenario: Ejemplo File Upload
+        When se hace clic en File Upload
+        Then se visualiza la página de File Upload
+        When se sube el archivo
+        Then el archivo se ha subido correctamente
+
+    @smoke
+    Scenario: Ejemplo Floating Menu
+        When se hace clic en Floating Menu
+        Then se visualiza la página de Floating Menu
+        When se desplaza la página hacia abajo
+        Then el menú flotante está visible
+
+    @smoke
+    Scenario: Ejemplo Forgot Password
+        When se hace clic en Forgot Password
+        Then se visualiza la página de Forgot Password
+        When se ingresa el correo "test@example.com"
+        When se envía el formulario de recuperación
+        Then se realizó la solicitud de recuperación de contraseña
+
+    @smoke
+    Scenario: Ejemplo Form Authentication
+        When se hace clic en Form Authentication
+        Then se visualiza la página de Login
+        When se ingresa el usuario "tomsmith"
+        And se ingresa la contraseña "SuperSecretPassword!"
+        And se inicia sesión
+        Then se visualiza el mensaje de login exitoso
+
+    @smoke
+    Scenario: Ejemplo Frames
+        When se hace clic en Frames
+        Then se visualiza la página de Frames
+        When se hace clic en Nested Frames
+        Then se visualizan los frames anidados
+        And se visualiza el texto "MIDDLE" en el frame central

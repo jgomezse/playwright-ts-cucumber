@@ -20,4 +20,9 @@ export class HomePage {
     static readonly EntryAdLink: string = "//a[contains(.,'Entry Ad')]";
     static readonly ExitIntentLink: string = "//a[contains(.,'Exit Intent')]";
     static readonly FileDownloadLink: string = "//a[text()='File Download']";
+    static readonly FileUploadLink: string = "//a[contains(.,'File Upload')]";
+    static readonly FloatingMenuLink: string = "//a[contains(.,'Floating Menu')]";
+    static readonly ForgotPasswordLink: string = "//a[contains(.,'Forgot Password')]";
+    static readonly FormAuthenticationLink: string = "//a[contains(.,'Form Authentication')]";
+    static readonly FramesLink: string = "//a[text()='Frames']";
 }
